@@ -6,7 +6,7 @@ from keras.models import model_from_yaml
 from flask import Flask
 from flask import render_template
 from flask import request
-inport h5py
+import h5py
 
 app = Flask(__name__)
 UPLOAD_FOLDER='static/'
