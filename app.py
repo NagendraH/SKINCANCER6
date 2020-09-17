@@ -1,8 +1,7 @@
 import numpy as np
 import cv2
 import tensorflow as tf
-import keras
-from keras.models import model_from_yaml
+from tensorflow import keras
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -20,14 +19,8 @@ def predict(image_path):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     img = img.astype(np.float32)/255.
     img=np.reshape(img,(1,75,100,3))
-    yaml_file = open('model.yaml', 'r')
-    loaded_model_yaml = yaml_file.read()
-    yaml_file.close()
-    loaded_model = model_from_yaml(loaded_model_yaml)
-    loaded_model.load_weights('model.h5')
-    print("Loaded model from disk")
-    loaded_model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
-    predictions=loaded_model.predict(img)
+    model = tf.keras.models.load_model('my_model.h5')
+    predictions=model.predict(img)
     #print(predictions)
     return np.vstack((tf.sigmoid(predictions))).ravel()    
 @app.route("/",methods=['GET','POST'])
