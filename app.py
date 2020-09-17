@@ -3,6 +3,7 @@ import cv2
 import tensorflow as tf
 from tensorflow import keras
 from flask import Flask
+from flask_ngrok import run_with_ngrok
 from flask import render_template
 from flask import request
 import h5py
@@ -22,7 +23,8 @@ def predict(image_path):
     model = tf.keras.models.load_model('my_model.h5')
     predictions=model.predict(img)
     #print(predictions)
-    return np.vstack((tf.sigmoid(predictions))).ravel()    
+    return np.vstack((tf.sigmoid(predictions))).ravel()   
+run_with_ngrok(app) 
 @app.route("/",methods=['GET','POST'])
 def upload_predict():
     if request.method=='POST':
