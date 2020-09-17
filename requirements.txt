@@ -6,3 +6,4 @@ gunicorn==20.0.4
 opencv-contrib-python-headless
 h5py
 pyyaml
+flask-ngrok
