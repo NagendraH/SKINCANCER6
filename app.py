@@ -24,7 +24,7 @@ def predict(image_path):
     predictions=model.predict(img)
     #print(predictions)
     return np.vstack((tf.sigmoid(predictions))).ravel()   
-run_with_ngrok(app) 
+#run_with_ngrok(app) 
 @app.route("/",methods=['GET','POST'])
 def upload_predict():
     if request.method=='POST':
