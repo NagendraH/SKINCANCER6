@@ -29,17 +29,25 @@
      {% if image_loc %}
         <img style="text-align:center;" class="mb-4" src="static/{{image_loc}}" alt="" width="256" height="256">
         <h3>Prediction: {{prediction}}</h3>
+        <h3 style="text-align:center;"><strong>Scroll down</strong></h3>
       {%endif%}
       <br>
     </form>
+    <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <h3 style="text-align:center;">If prediction is less than 0.5</h2>
+    <h3 style="text-align:center;"><strong>No Need To Worry!</strong></h2>
     <h3 style="text-align:center;">If prediction is greater than 0.5</h2>
      <h3 style="text-align:center;"><strong> Are you Patient?</strong></h2>
     <div style="text-align:center;">
-    <button onclick="javascript:window.open('https://www.google.com/search?sxsrf=ALeKk03QU00iylLjwUR23apSMdPP9CI6Rw:1601055693821&q=dermatologist+nearby&npsic=0&rflfq=1&rldoc=1&rlha=0&rllag=13261385,76472205,254&tbm=lcl&sxsrf=ALeKk03QU00iylLjwUR23apSMdPP9CI6Rw:1601055693821&sa=X&ved=2ahUKEwj88ZSf7YTsAhWJwTgGHaq9Ai0QjGp6BAgNEEw', '_blank');" style="background-color:black;color:white;" class="w3-btn w3-round-xlarge" style="text-align:center;" target='_blank'>See Doctors nearby:</button>
+    <button onclick="javascript:window.open('https://www.google.com/search?sxsrf=ALeKk03QU00iylLjwUR23apSMdPP9CI6Rw:1601055693821&q=dermatologist+nearby&npsic=0&rflfq=1&rldoc=1&rlha=0&rllag=13261385,76472205,254&tbm=lcl&sxsrf=ALeKk03QU00iylLjwUR23apSMdPP9CI6Rw:1601055693821&sa=X&ved=2ahUKEwj88ZSf7YTsAhWJwTgGHaq9Ai0QjGp6BAgNEEw');" style="background-color:black;color:white;" class="w3-btn w3-round-xlarge" style="text-align:center;" >See Doctors nearby:</button>
     </div>
     <h3 style="text-align:center;"><strong> Are you Doctor?</strong></h2>
     <div style="text-align:center;">
-    <button onclick="javascript:window.open('https://app.slack.com/client/T01B81A7QTG/learning-slack', '_blank');" style="background-color:black;color:white;" class="w3-btn w3-round-xlarge" style="text-align:center;" target='_blank'>Join the doctors channel</button>
+    <button onclick="javascript:window.open('https://app.slack.com/client/T01B81A7QTG/learning-slack');" style="background-color:black;color:white;" class="w3-btn w3-round-xlarge" style="text-align:center;" >Join the doctors channel</button>
     </div>
 </body>
 <html>
