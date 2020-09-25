@@ -1,12 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-grey.css">
+<body class="w3-theme-l2">
     <title>Skin Cancer Detection</title>
     <h1 style="text-align:center;"> SKIN CANCER DETECTION APP2</h1>
     <h1 style="text-align:center;"><img style="text-align:center;" src="static\sk.jpg"  alt="Smiley face" style="float:left;width:100px;height:100px;"></h1>
     <h1 style="text-align:center;">Upload new File</h1>
     <form style="text-align:center;" method=post enctype=multipart/form-data>
-      <input style="text-align:center;"type=file name=image>
+      <input class="w3-button w3-round-xxlarge" style="text-align:center;"type=file name=image>
       <br>
-      <input style="text-align:center;"type=submit value=Predict>
+   
+      <input type="submit" style="background-color:black;color:white;" class="w3-btn w3-round-xlarge" style="text-align:center;" value=Predict>
+     
       <br>
       <h2>Predict:{{prediction}}</h2>
     </form>
+    <h3 style="text-align:center;">If prediction is greater than 0.5</h2>
+    <h3 style="text-align:center;">See Doctors nearby:</h2>
+</body>
+<html>
+
+
