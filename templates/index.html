@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-grey.css">
-<body class="w3-theme-l2">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+<style>
+.w3-allerta {
+  font-family: "Allerta Stencil", Sans-serif;
+}
+</style>
+<body class="w3-container w3-grey">
     <title>Skin Cancer Detection</title>
-    <h1 style="text-align:center;"> SKIN CANCER DETECTION APP2</h1>
+    <div class="w3-container w3-black w3-center w3-allerta">
+    <p class="w3-xlarge" style="text-align:center;">SKIN CANCER DETECTION APP</p>
+    </div>
+  
     <h1 style="text-align:center;"><img style="text-align:center;" src="static\sk.jpg"  alt="Smiley face" style="float:left;width:100px;height:100px;"></h1>
+    
     <h1 style="text-align:center;">Upload new File</h1>
     <form style="text-align:center;" method=post enctype=multipart/form-data>
-      <input class="w3-button w3-round-xxlarge" style="text-align:center;"type=file name=image>
+      <input style="background-color:white;color:black;" class="w3-btn w3-round-xlarge" style="text-align:center;"type=file name=image>
       <br>
-   
+      <br>
       <input type="submit" style="background-color:black;color:white;" class="w3-btn w3-round-xlarge" style="text-align:center;" value=Predict>
-     
       <br>
-      <h2>Predict:{{prediction}}</h2>
+      <br>
+     {% if image_loc %}
+        <img style="text-align:center;" class="mb-4" src="static/{{image_loc}}" alt="" width="256" height="256">
+        <h3>Prediction: {{prediction}}</h3>
+      {%endif%}
+      <br>
     </form>
     <h3 style="text-align:center;">If prediction is greater than 0.5</h2>
-    <h3 style="text-align:center;">See Doctors nearby:</h2>
+    <div style="text-align:center;">
+    <button onclick="window.location.href='https://www.google.com/search?sxsrf=ALeKk03QU00iylLjwUR23apSMdPP9CI6Rw:1601055693821&q=dermatologist+nearby&npsic=0&rflfq=1&rldoc=1&rlha=0&rllag=13261385,76472205,254&tbm=lcl&sxsrf=ALeKk03QU00iylLjwUR23apSMdPP9CI6Rw:1601055693821&sa=X&ved=2ahUKEwj88ZSf7YTsAhWJwTgGHaq9Ai0QjGp6BAgNEEw';" style="background-color:black;color:white;" class="w3-btn w3-round-xlarge" style="text-align:center;">See Doctors nearby:</button>
+    </div>
+   
 </body>
 <html>
-
 
