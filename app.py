@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 import tensorflow as tf
 from tensorflow import keras
+from keras.models import model_from_json 
 from flask import Flask
 from flask_ngrok import run_with_ngrok
 from flask import render_template
@@ -13,18 +14,21 @@ UPLOAD_FOLDER='static/'
 
 
 def predict(image_path):
-    mean = (0.485, 0.456, 0.406)
-    std = (0.229, 0.224, 0.225)
-    img=cv2.imread(str(image_path))
-    img = cv2.resize(img, (75,100))
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    img = img.astype(np.float32)/255.
-    img=np.reshape(img,(1,75,100,3))
-    model = tf.keras.models.load_model('my_model.h5')
-    predictions=model.predict(img)
+    image = cv2.imread(image_path)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    image = cv2.resize(image, (224, 224))
+    image = image.astype(np.float32)/255.
+    image=np.expand_dims(image, axis=0)
+    json_file = open('model.json', 'r')
+    loaded_model_json = json_file. read()
+    json_file. close()
+    model = model_from_json(loaded_model_json)
+        # load weights into new model.
+    model. load_weights("model.h5")
+    predictions=model.predict_classes(image)
     #print(predictions)
-    return np.vstack((tf.sigmoid(predictions))).ravel()   
-#run_with_ngrok(app) 
+    return predictions   
+run_with_ngrok(app) 
 @app.route("/",methods=['GET','POST'])
 def upload_predict():
     if request.method=='POST':
