@@ -24,7 +24,7 @@ def predict(image_path):
     json_file. close()
     model = model_from_json(loaded_model_json)
         # load weights into new model.
-    model. load_weights("model.h5")
+    model. tf.keras.model.load_weights("model.h5")
     predictions=model.predict_classes(image)
     #print(predictions)
     return predictions   
