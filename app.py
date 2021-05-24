@@ -28,7 +28,7 @@ def predict(image_path):
     predictions=model.predict_classes(image)
     #print(predictions)
     return predictions   
-run_with_ngrok(app) 
+#run_with_ngrok(app) 
 @app.route("/",methods=['GET','POST'])
 def upload_predict():
     if request.method=='POST':
