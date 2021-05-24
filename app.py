@@ -19,12 +19,7 @@ def predict(image_path):
     image = cv2.resize(image, (224, 224))
     image = image.astype(np.float32)/255.
     image=np.expand_dims(image, axis=0)
-    json_file = open('model.json', 'r')
-    loaded_model_json = json_file. read()
-    json_file. close()
-    model = model_from_json(loaded_model_json)
-        # load weights into new model.
-    model. tf.keras.model.load_weights("model.h5")
+    model = tf.keras.models.load_model('/content/saved_model/model')
     predictions=model.predict_classes(image)
     #print(predictions)
     return predictions   
